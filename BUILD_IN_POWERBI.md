@@ -1,10 +1,25 @@
 # Building the report in Power BI Desktop
 
-Power BI Desktop runs on Windows only. Two routes; both use steps 2–6 below.
+Three routes. A and B use Power BI Desktop (Windows only) and steps 2–6 below; C is the browser.
 
 - **Route A, with Claude Code on the Windows laptop (recommended).** You import the data and draw the visuals.
   Claude builds the model (relationships, date table, all measures) and checks every number. About 20 minutes of your time.
 - **Route B, by hand.** You do every step. About 30 minutes.
+
+## Route C, in the browser (what was actually done, on a free USF account)
+No Windows needed. The model part worked at app.powerbi.com; data refresh is blocked on a free license, so nothing may
+depend on it.
+1. Create → Get Data → drag `FactFlights.csv` into Upload file (it lands in your OneDrive). In the editor: Get data →
+   Upload → `DimAirport.csv`. Rename the queries, then **Create a report ▾ → Create semantic model only**.
+2. In the model editor (Editing mode): **New table** three times: `DimCarrier` and `DimCancelReason` as `DATATABLE`,
+   `DimDate` as `ADDCOLUMNS(CALENDAR(...))` (same columns as `DimDate.csv`).
+3. **TMDL view**: paste a `createOrReplace` script with the five relationships (`fact_dest` has `isActive: false`), Apply;
+   then one with `ref table FactFlights` + the 22 measures and their `formatString`s, Apply.
+4. Gotcha: relationships added by script "need to be recalculated" and Refresh needs a paid license. Re-committing the
+   DimDate formula (select it, paste the same formula into the formula bar, Enter) recalculated the model.
+5. **DAX query view**: paste `verify.dax`, Run; for each of the 5 results use Copy → Copy table, save as
+   `powerbi_web/r1.tsv` … `r5.tsv`, then `./venv/bin/python check_powerbi.py` (all 184 values matched).
+6. MonthLabel → Advanced → Sort by column → MonthKey. Then **New report** and build step 6's page.
 
 ## Route A setup (once per laptop)
 
