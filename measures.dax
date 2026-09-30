@@ -1,0 +1,52 @@
+// Florida Flight Delays - DAX measures. Paste each into a new measure on FactFlights.
+// Definitions (numerator, denominator, exclusions) are in model.md; check.py computes the same numbers in pandas.
+
+// ---------- volume ----------
+Scheduled Flights = COUNTROWS ( FactFlights )
+
+Cancelled Flights = SUM ( FactFlights[Cancelled] )
+
+Diverted Flights = SUM ( FactFlights[Diverted] )
+
+// operated AND reached the scheduled destination; only these have an arrival delay
+Completed Flights = [Scheduled Flights] - [Cancelled Flights] - [Diverted Flights]
+
+// ---------- punctuality (DOT definition: on time = arrived < 15 min after schedule) ----------
+Late Arrivals = CALCULATE ( COUNTROWS ( FactFlights ), FactFlights[ArrDel15] = 1 )
+
+On-Time Arrivals = [Completed Flights] - [Late Arrivals]
+
+On-Time % = DIVIDE ( [On-Time Arrivals], [Completed Flights] )
+
+Cancellation Rate = DIVIDE ( [Cancelled Flights], [Scheduled Flights] )
+
+// ArrDelay is blank for cancelled/diverted flights, so AVERAGE covers completed flights only; early = negative
+Avg Arrival Delay (min) = AVERAGE ( FactFlights[ArrDelay] )
+
+Avg Delay When Late (min) = CALCULATE ( AVERAGE ( FactFlights[ArrDelay] ), FactFlights[ArrDel15] = 1 )
+
+// ---------- why flights were late (BTS splits a late arrival's minutes into 5 causes) ----------
+Carrier Delay Min = SUM ( FactFlights[CarrierDelay] )
+Weather Delay Min = SUM ( FactFlights[WeatherDelay] )
+NAS Delay Min = SUM ( FactFlights[NASDelay] )
+Security Delay Min = SUM ( FactFlights[SecurityDelay] )
+Late Aircraft Delay Min = SUM ( FactFlights[LateAircraftDelay] )
+
+Total Delay Min =
+    [Carrier Delay Min] + [Weather Delay Min] + [NAS Delay Min] + [Security Delay Min] + [Late Aircraft Delay Min]
+
+Weather Share of Delay Min = DIVIDE ( [Weather Delay Min], [Total Delay Min] )
+
+Weather Cancellations = CALCULATE ( [Cancelled Flights], FactFlights[CancelCode] = "B" )
+
+// ---------- comparisons ----------
+// the whole-Florida benchmark, whatever airport is selected
+On-Time % (All Florida) = CALCULATE ( [On-Time %], REMOVEFILTERS ( DimAirport ) )
+
+On-Time vs Florida (pts) = ( [On-Time %] - [On-Time % (All Florida)] ) * 100
+
+Carrier On-Time Rank = IF ( HASONEVALUE ( DimCarrier[CarrierName] ), RANKX ( ALLSELECTED ( DimCarrier ), [On-Time %] ) )
+
+// destination view uses the inactive FactFlights[DestCode] -> DimAirport relationship
+Flights To Destination =
+    CALCULATE ( [Scheduled Flights], USERELATIONSHIP ( FactFlights[DestCode], DimAirport[AirportCode] ) )
