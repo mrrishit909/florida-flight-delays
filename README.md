@@ -17,6 +17,8 @@ How reliable are flights out of Florida, and why are they late? A year of US DOT
 | 5 | `preview.py`, `preview/` | web version of the report, computed with the same measure code |
 | 6 | `BUILD_IN_POWERBI.md`, `verify.dax`, `.mcp.json` | build the .pbix on Windows (by hand, or with Claude Code + Microsoft's Power BI Modeling MCP) and check it with DAX queries |
 
+![The report in Power BI](screenshots/report.png)
+
 ## Run it
 
 ```
@@ -42,6 +44,6 @@ https://www.transtats.bts.gov/. Public domain. Covers carriers with at least 0.5
 
 ## Not done yet
 
-- The `.pbix` itself: Power BI Desktop is Windows-only and this was built on a Mac. Everything it needs (model, measures,
-  expected values, build guide) is here; screenshots get added once it is built.
+- The report lives in Power BI Service (a free USF account), built in the browser: see `screenshots/report.png`. Its
+  numbers were checked against pandas (`check_powerbi.py`, 184/184 match). A downloadable `.pbix` isn't in the repo yet.
 - No year-over-year comparison (one year of data).
