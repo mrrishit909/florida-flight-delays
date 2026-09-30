@@ -1,8 +1,32 @@
 # Building the report in Power BI Desktop
 
-Power BI Desktop runs on Windows only (a USF lab PC or a Windows VM works). About 30 minutes.
+Power BI Desktop runs on Windows only. Two routes; both use steps 2–6 below.
 
-## 1. Get the data
+- **Route A, with Claude Code on the Windows laptop (recommended).** You import the data and draw the visuals.
+  Claude builds the model (relationships, date table, all measures) and checks every number. About 20 minutes of your time.
+- **Route B, by hand.** You do every step. About 30 minutes.
+
+## Route A setup (once per laptop)
+
+1. Install **Power BI Desktop** (free, Microsoft Store), **Node.js LTS** (nodejs.org) and **Git for Windows**
+   (git-scm.com).
+2. Install **Claude Code**: follow https://code.claude.com/docs/en/setup (a one-line PowerShell command), then run
+   `claude` once to sign in.
+3. Read the license for Microsoft's Power BI Modeling MCP server (https://github.com/microsoft/powerbi-modeling-mcp).
+   If you agree, run `setx PBI_MODELING_MCP_ACCEPT_EULA true` in PowerShell and open a new PowerShell window.
+4. Get the project:
+   ```
+   git clone https://github.com/mrrishit909/florida-flight-delays
+   cd florida-flight-delays
+   claude
+   ```
+   Approve the `powerbi-modeling` server when Claude Code asks. It comes from `.mcp.json` in this repo.
+
+Then do **step 2** yourself, save as `FloridaFlightDelays.pbix` in the repo folder, and leave the file open.
+Tell Claude: *"Connect to FloridaFlightDelays in Power BI Desktop and do steps 3–5 of BUILD_IN_POWERBI.md."*
+When it reports that every number matches, do **step 6** yourself; Claude can't create visuals. Then ask it to commit and push.
+
+## 1. Get the data (Route B)
 Download this repo (Code → Download ZIP) and unzip it. Everything needed is in `model/`.
 
 ## 2. Import the five tables
@@ -39,9 +63,9 @@ Create a new measure on FactFlights for each block in `measures.dax` (copy/paste
 On-Time %, Cancellation Rate, On-Time % (All Florida) and Weather Share of Delay Min = Percentage, 1 decimal.
 
 ## 5. Check the numbers before designing anything
-Put each measure on a card and compare with `expected_values.md`. Then add a DimAirport[AirportCode] slicer and
-compare a few airports (e.g. TPA 78.3% on time). If anything differs, the usual cause is a blank that turned into 0
-in step 2.
+Open **DAX query view**, paste `verify.dax`, and run it. Every result must match `expected_values.md` (e.g. On-Time %
+0.7549, TPA 78.3%, Envoy Air rank 1). If anything differs, the usual causes are a blank that turned into 0 in step 2, or
+the DestCode relationship left active.
 
 ## 6. Report page (mirror of the web preview)
 - Slicer: DimAirport[AirportCode] (filter the slicer to IsFlorida = 1), plus DimDate[MonthLabel].
@@ -52,4 +76,8 @@ in step 2.
 - Bar chart: the five cause measures (Carrier / Weather / NAS / Security / Late Aircraft Delay Min).
 - Table: DimAirport[AirportCode], City, Scheduled Flights, On-Time %, Cancellation Rate.
 
-Save as `FloridaFlightDelays.pbix` in the repo root, take a screenshot of the page into `screenshots/`, and commit both.
+## Done means
+- [ ] Every `verify.dax` result matches `expected_values.md`.
+- [ ] `FloridaFlightDelays.pbix` and `screenshots/report.png` (Win+Shift+S, save the image) are committed and pushed;
+      each file is under 49 MB.
+- [ ] The website notes that say ".pbix pending" get updated (on the Mac: ask Claude to refresh the case study).

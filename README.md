@@ -15,7 +15,7 @@ How reliable are flights out of Florida, and why are they late? A year of US DOT
 | 3 | `model.md`, `measures.dax` | relationships and every measure's definition (numerator, denominator, exclusions) |
 | 4 | `check.py` → `expected_values.md` | integrity asserts + the value every measure must show in Power BI |
 | 5 | `preview.py`, `preview/` | web version of the report, computed with the same measure code |
-| 6 | `BUILD_IN_POWERBI.md` | step-by-step build of the .pbix in Power BI Desktop |
+| 6 | `BUILD_IN_POWERBI.md`, `verify.dax`, `.mcp.json` | build the .pbix on Windows (by hand, or with Claude Code + Microsoft's Power BI Modeling MCP) and check it with DAX queries |
 
 ## Run it
 

@@ -1,0 +1,65 @@
+// Paste into Power BI Desktop -> DAX query view -> Run (or run each EVALUATE through the Power BI Modeling MCP).
+// Every number must match expected_values.md. A mismatch usually means a blank became 0 on import,
+// or a relationship is missing / active when it should be inactive.
+
+// 1. Cards (whole model)
+EVALUATE
+ROW (
+    "Scheduled Flights", [Scheduled Flights],
+    "Cancelled Flights", [Cancelled Flights],
+    "Diverted Flights", [Diverted Flights],
+    "Completed Flights", [Completed Flights],
+    "Late Arrivals", [Late Arrivals],
+    "On-Time %", [On-Time %],
+    "Cancellation Rate", [Cancellation Rate],
+    "Avg Arrival Delay (min)", [Avg Arrival Delay (min)],
+    "Avg Delay When Late (min)", [Avg Delay When Late (min)],
+    "Total Delay Min", [Total Delay Min],
+    "Weather Share of Delay Min", [Weather Share of Delay Min],
+    "Weather Cancellations", [Weather Cancellations]
+)
+
+// 2. Delay minutes by cause
+EVALUATE
+ROW (
+    "Late Aircraft Delay Min", [Late Aircraft Delay Min],
+    "Carrier Delay Min", [Carrier Delay Min],
+    "NAS Delay Min", [NAS Delay Min],
+    "Weather Delay Min", [Weather Delay Min],
+    "Security Delay Min", [Security Delay Min]
+)
+
+// 3. By origin airport (Florida only)
+EVALUATE
+SUMMARIZECOLUMNS (
+    DimAirport[AirportCode],
+    DimAirport[City],
+    KEEPFILTERS ( TREATAS ( { 1 }, DimAirport[IsFlorida] ) ),
+    "Flights", [Scheduled Flights],
+    "On-Time %", [On-Time %],
+    "Cancellation Rate", [Cancellation Rate],
+    "On-Time vs Florida (pts)", [On-Time vs Florida (pts)]
+)
+ORDER BY [Flights] DESC
+
+// 4. By carrier
+EVALUATE
+SUMMARIZECOLUMNS (
+    DimCarrier[CarrierName],
+    "Flights", [Scheduled Flights],
+    "On-Time %", [On-Time %],
+    "Carrier On-Time Rank", [Carrier On-Time Rank]
+)
+ORDER BY [Carrier On-Time Rank]
+
+// 5. By month
+EVALUATE
+SUMMARIZECOLUMNS (
+    DimDate[MonthKey],
+    DimDate[MonthLabel],
+    "Flights", [Scheduled Flights],
+    "On-Time %", [On-Time %],
+    "Cancellation Rate", [Cancellation Rate],
+    "Weather Cancellations", [Weather Cancellations]
+)
+ORDER BY DimDate[MonthKey]

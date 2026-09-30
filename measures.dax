@@ -43,7 +43,8 @@ Weather Cancellations = CALCULATE ( [Cancelled Flights], FactFlights[CancelCode]
 // the whole-Florida benchmark, whatever airport is selected
 On-Time % (All Florida) = CALCULATE ( [On-Time %], REMOVEFILTERS ( DimAirport ) )
 
-On-Time vs Florida (pts) = ( [On-Time %] - [On-Time % (All Florida)] ) * 100
+// blank (not -75.5) for airports with no flights, so they don't fill tables and slicers
+On-Time vs Florida (pts) = IF ( NOT ISBLANK ( [On-Time %] ), ( [On-Time %] - [On-Time % (All Florida)] ) * 100 )
 
 Carrier On-Time Rank = IF ( HASONEVALUE ( DimCarrier[CarrierName] ), RANKX ( ALLSELECTED ( DimCarrier ), [On-Time %] ) )
 
