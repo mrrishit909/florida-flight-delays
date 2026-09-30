@@ -1,0 +1,164 @@
+AirportCode,City,State,StateName,IsFlorida
+ABE,"Allentown/Bethlehem/Easton, PA",PA,Pennsylvania,0
+ABQ,"Albuquerque, NM",NM,New Mexico,0
+ACY,"Atlantic City, NJ",NJ,New Jersey,0
+AGS,"Augusta, GA",GA,Georgia,0
+ALB,"Albany, NY",NY,New York,0
+ATL,"Atlanta, GA",GA,Georgia,0
+ATW,"Appleton, WI",WI,Wisconsin,0
+AUS,"Austin, TX",TX,Texas,0
+AVL,"Asheville, NC",NC,North Carolina,0
+BDL,"Hartford, CT",CT,Connecticut,0
+BGR,"Bangor, ME",ME,Maine,0
+BHM,"Birmingham, AL",AL,Alabama,0
+BIS,"Bismarck/Mandan, ND",ND,North Dakota,0
+BLV,"Belleville, IL",IL,Illinois,0
+BMI,"Bloomington/Normal, IL",IL,Illinois,0
+BNA,"Nashville, TN",TN,Tennessee,0
+BOS,"Boston, MA",MA,Massachusetts,0
+BQN,"Aguadilla, PR",PR,Puerto Rico,0
+BTV,"Burlington, VT",VT,Vermont,0
+BUF,"Buffalo, NY",NY,New York,0
+BWI,"Baltimore, MD",MD,Maryland,0
+BZN,"Bozeman, MT",MT,Montana,0
+CAE,"Columbia, SC",SC,South Carolina,0
+CAK,"Akron, OH",OH,Ohio,0
+CHA,"Chattanooga, TN",TN,Tennessee,0
+CHS,"Charleston, SC",SC,South Carolina,0
+CID,"Cedar Rapids/Iowa City, IA",IA,Iowa,0
+CKB,"Clarksburg/Fairmont, WV",WV,West Virginia,0
+CLE,"Cleveland, OH",OH,Ohio,0
+CLL,"College Station/Bryan, TX",TX,Texas,0
+CLT,"Charlotte, NC",NC,North Carolina,0
+CMH,"Columbus, OH",OH,Ohio,0
+COS,"Colorado Springs, CO",CO,Colorado,0
+COU,"Columbia, MO",MO,Missouri,0
+CVG,"Cincinnati, OH",KY,Kentucky,0
+DAB,"Daytona Beach, FL",FL,Florida,1
+DAL,"Dallas, TX",TX,Texas,0
+DAY,"Dayton, OH",OH,Ohio,0
+DCA,"Washington, DC",VA,Virginia,0
+DEN,"Denver, CO",CO,Colorado,0
+DFW,"Dallas/Fort Worth, TX",TX,Texas,0
+DSM,"Des Moines, IA",IA,Iowa,0
+DTW,"Detroit, MI",MI,Michigan,0
+ECP,"Panama City, FL",FL,Florida,1
+EGE,"Eagle, CO",CO,Colorado,0
+ELM,"Elmira/Corning, NY",NY,New York,0
+ELP,"El Paso, TX",TX,Texas,0
+EUG,"Eugene, OR",OR,Oregon,0
+EVV,"Evansville, IN",IN,Indiana,0
+EWR,"Newark, NJ",NJ,New Jersey,0
+EYW,"Key West, FL",FL,Florida,1
+FAR,"Fargo, ND",ND,North Dakota,0
+FLL,"Fort Lauderdale, FL",FL,Florida,1
+FNT,"Flint, MI",MI,Michigan,0
+FSD,"Sioux Falls, SD",SD,South Dakota,0
+FWA,"Fort Wayne, IN",IN,Indiana,0
+GNV,"Gainesville, FL",FL,Florida,1
+GRR,"Grand Rapids, MI",MI,Michigan,0
+GSO,"Greensboro/High Point, NC",NC,North Carolina,0
+GSP,"Greer, SC",SC,South Carolina,0
+HDN,"Hayden, CO",CO,Colorado,0
+HGR,"Hagerstown, MD",MD,Maryland,0
+HOU,"Houston, TX",TX,Texas,0
+HPN,"White Plains, NY",NY,New York,0
+HSV,"Huntsville, AL",AL,Alabama,0
+HTS,"Ashland, WV",WV,West Virginia,0
+IAD,"Washington, DC",VA,Virginia,0
+IAG,"Niagara Falls, NY",NY,New York,0
+IAH,"Houston, TX",TX,Texas,0
+ICT,"Wichita, KS",KS,Kansas,0
+ILM,"Wilmington, NC",NC,North Carolina,0
+IND,"Indianapolis, IN",IN,Indiana,0
+ISP,"Islip, NY",NY,New York,0
+JAN,"Jackson/Vicksburg, MS",MS,Mississippi,0
+JAX,"Jacksonville, FL",FL,Florida,1
+JFK,"New York, NY",NY,New York,0
+LAS,"Las Vegas, NV",NV,Nevada,0
+LAX,"Los Angeles, CA",CA,California,0
+LBB,"Lubbock, TX",TX,Texas,0
+LBE,"Latrobe, PA",PA,Pennsylvania,0
+LCK,"Columbus, OH",OH,Ohio,0
+LEX,"Lexington, KY",KY,Kentucky,0
+LGA,"New York, NY",NY,New York,0
+LGB,"Long Beach, CA",CA,California,0
+LIT,"Little Rock, AR",AR,Arkansas,0
+LSE,"La Crosse, WI",WI,Wisconsin,0
+MCI,"Kansas City, MO",MO,Missouri,0
+MCO,"Orlando, FL",FL,Florida,1
+MDT,"Harrisburg, PA",PA,Pennsylvania,0
+MDW,"Chicago, IL",IL,Illinois,0
+MEM,"Memphis, TN",TN,Tennessee,0
+MFE,"Mission/McAllen/Edinburg, TX",TX,Texas,0
+MHT,"Manchester, NH",NH,New Hampshire,0
+MIA,"Miami, FL",FL,Florida,1
+MKE,"Milwaukee, WI",WI,Wisconsin,0
+MLB,"Melbourne, FL",FL,Florida,1
+MLI,"Moline, IL",IL,Illinois,0
+MSN,"Madison, WI",WI,Wisconsin,0
+MSP,"Minneapolis, MN",MN,Minnesota,0
+MSY,"New Orleans, LA",LA,Louisiana,0
+MYR,"Myrtle Beach, SC",SC,South Carolina,0
+OKC,"Oklahoma City, OK",OK,Oklahoma,0
+OMA,"Omaha, NE",NE,Nebraska,0
+ORD,"Chicago, IL",IL,Illinois,0
+ORF,"Norfolk, VA",VA,Virginia,0
+ORH,"Worcester, MA",MA,Massachusetts,0
+PBG,"Plattsburgh, NY",NY,New York,0
+PBI,"West Palm Beach/Palm Beach, FL",FL,Florida,1
+PDX,"Portland, OR",OR,Oregon,0
+PGD,"Punta Gorda, FL",FL,Florida,1
+PHL,"Philadelphia, PA",PA,Pennsylvania,0
+PHX,"Phoenix, AZ",AZ,Arizona,0
+PIA,"Peoria, IL",IL,Illinois,0
+PIE,"St. Petersburg, FL",FL,Florida,1
+PIT,"Pittsburgh, PA",PA,Pennsylvania,0
+PNS,"Pensacola, FL",FL,Florida,1
+PSE,"Ponce, PR",PR,Puerto Rico,0
+PSM,"Portsmouth, NH",NH,New Hampshire,0
+PVD,"Providence, RI",RI,Rhode Island,0
+PVU,"Provo, UT",UT,Utah,0
+PWM,"Portland, ME",ME,Maine,0
+RAP,"Rapid City, SD",SD,South Dakota,0
+RDU,"Raleigh/Durham, NC",NC,North Carolina,0
+RFD,"Rockford, IL",IL,Illinois,0
+RIC,"Richmond, VA",VA,Virginia,0
+RNO,"Reno, NV",NV,Nevada,0
+ROA,"Roanoke, VA",VA,Virginia,0
+ROC,"Rochester, NY",NY,New York,0
+RSW,"Fort Myers, FL",FL,Florida,1
+SAN,"San Diego, CA",CA,California,0
+SAT,"San Antonio, TX",TX,Texas,0
+SAV,"Savannah, GA",GA,Georgia,0
+SBN,"South Bend, IN",IN,Indiana,0
+SDF,"Louisville, KY",KY,Kentucky,0
+SEA,"Seattle, WA",WA,Washington,0
+SFB,"Sanford, FL",FL,Florida,1
+SFO,"San Francisco, CA",CA,California,0
+SGF,"Springfield, MO",MO,Missouri,0
+SHV,"Shreveport, LA",LA,Louisiana,0
+SJC,"San Jose, CA",CA,California,0
+SJU,"San Juan, PR",PR,Puerto Rico,0
+SLC,"Salt Lake City, UT",UT,Utah,0
+SMF,"Sacramento, CA",CA,California,0
+SPI,"Springfield, IL",IL,Illinois,0
+SRQ,"Sarasota/Bradenton, FL",FL,Florida,1
+STC,"St. Cloud, MN",MN,Minnesota,0
+STL,"St. Louis, MO",MO,Missouri,0
+STT,"Charlotte Amalie, VI",VI,U.S. Virgin Islands,0
+STX,"Christiansted, VI",VI,U.S. Virgin Islands,0
+SWF,"Newburgh/Poughkeepsie, NY",NY,New York,0
+SYR,"Syracuse, NY",NY,New York,0
+TLH,"Tallahassee, FL",FL,Florida,1
+TOL,"Toledo, OH",OH,Ohio,0
+TPA,"Tampa, FL",FL,Florida,1
+TRI,"Bristol/Johnson City/Kingsport, TN",TN,Tennessee,0
+TTN,"Trenton, NJ",NJ,New Jersey,0
+TUL,"Tulsa, OK",OK,Oklahoma,0
+TVC,"Traverse City, MI",MI,Michigan,0
+TYS,"Knoxville, TN",TN,Tennessee,0
+USA,"Concord, NC",NC,North Carolina,0
+VPS,"Valparaiso, FL",FL,Florida,1
+VRB,"Vero Beach, FL",FL,Florida,1
+XNA,"Fayetteville, AR",AR,Arkansas,0
