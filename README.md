@@ -44,6 +44,6 @@ https://www.transtats.bts.gov/. Public domain. Covers carriers with at least 0.5
 
 ## Not done yet
 
-- The report lives in Power BI Service (a free USF account), built in the browser: see `screenshots/report.png`. Its
-  numbers were checked against pandas (`check_powerbi.py`, 184/184 match). A downloadable `.pbix` isn't in the repo yet.
+- Nothing major. The report was built in Power BI Service (browser) and downloaded as `FloridaFlightDelays.pbix`
+  (open it in Power BI Desktop on Windows); its numbers were checked against pandas (`check_powerbi.py`, 184/184 match).
 - No year-over-year comparison (one year of data).
